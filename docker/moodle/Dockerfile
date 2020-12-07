@@ -34,6 +34,9 @@ RUN mkdir /var/lib/sitedata \
     && mkdir /var/lib/testsitedata \
     && chmod 0777 /var/lib/testsitedata
 
+RUN mkdir /var/lib/sitedata/lang
+RUN ln -s /siteroot/lang/mu/en_local /var/lib/sitedata/lang
+
 COPY nginx-site /etc/nginx/sites-available/default
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY xdebug.ini /etc/php/7.4/mods-available/xdebug.ini

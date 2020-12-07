@@ -16,15 +16,15 @@ services:
       POSTGRES_USER: moodle_user
     volumes:
       - 'db:/var/lib/postgresql'
-  callista:
+  moodle-integration-db:
     image: postgres:9.6
     restart: always
     environment:
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: moodle
-      POSTGRES_USER: moodle_user
+      POSTGRES_DB: dev_integration
+      POSTGRES_USER: dev_integration
     volumes:
-      - 'callista:/var/lib/postgresql'
+      - 'moodle-integration-db:/var/lib/postgresql'
   test-db:
     image: postgres:9.6
     restart: always
@@ -36,5 +36,5 @@ services:
       - 'testdb:/var/lib/postgresql'
 volumes:
     db:
-    callista:
+    moodle-integration-db:
     testdb:
