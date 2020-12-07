@@ -16,6 +16,15 @@ services:
       POSTGRES_USER: moodle_user
     volumes:
       - 'db:/var/lib/postgresql'
+  callista:
+    image: postgres:9.6
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: moodle
+      POSTGRES_USER: moodle_user
+    volumes:
+      - 'callista:/var/lib/postgresql'
   test-db:
     image: postgres:9.6
     restart: always
@@ -27,4 +36,5 @@ services:
       - 'testdb:/var/lib/postgresql'
 volumes:
     db:
+    callista:
     testdb:
